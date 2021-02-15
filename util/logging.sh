@@ -13,28 +13,16 @@ function LogErr() {
     Log "${1}" "${*:2}" "ERROR" '\033[1;31m'
 }
 export -f LogErr
-export ErrMessage='eval LogErr "$(echo -e "$(basename $0)/${FUNCNAME[0]}/$LINENO")"'
+ErrMessage='eval LogErr "$(echo -e "$(basename $0)/${FUNCNAME[0]}/$LINENO")"'
 
 function LogWarn() {
     Log "${1}" "${*:2}" "WARNING" '\033[1;33m'
 }
 export -f LogWarn
-export WarnMessage='eval LogWarn "$(echo -e "$(basename $0)/${FUNCNAME[0]}/$LINENO")"'
+WarnMessage='eval LogWarn "$(echo -e "$(basename $0)/${FUNCNAME[0]}/$LINENO")"'
 
 function LogInfo() {
     Log "${1}" "${*:2}" "INFO" '\033[1;34m'
 }
 export -f LogInfo
-export InfoMessage='eval LogInfo "$(echo -e "$(basename $0)/${FUNCNAME[0]}/$LINENO")"'
-
-function LogSuccess() {
-    Log "${1}" "${*:2}" "SUCCESS" '\033[1;32m'
-}
-export -f LogSuccess
-export SuccessMessage='eval LogSuccess "$(echo -e "$(basename $0)/${FUNCNAME[0]}/$LINENO")"'
-
-function LogFailure() {
-    Log "${1}" "${*:2}" "FAILURE" '\033[1;91m'
-}
-export -f LogFailure
-export FailureMessage='eval LogFailure "$(echo -e "$(basename $0)/${FUNCNAME[0]}/$LINENO")"'
+InfoMessage='eval LogInfo "$(echo -e "$(basename $0)/${FUNCNAME[0]}/$LINENO")"'
