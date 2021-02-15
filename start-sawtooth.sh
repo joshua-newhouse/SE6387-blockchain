@@ -7,7 +7,8 @@ source conf/sh.env
 function VerifyRestAPIUp() {
     local nodeID=${1}
 
-    local response="$(docker exec -t ${REST_API_CTX_PFX}-${nodeID} sh -c \"ps --pid 1 fw\")"
+    $InfoMessage "Verifying REST API ${nodeID}"
+    local response="$(docker exec -t ${REST_API_CTX_PFX}-${nodeID} sh -c "ps --pid 1 fw")"
     [[ $? -ne 0 ]] && $WarnMessage "REST API ${nodeID} is not up: ${response}" && return 1
 
     return 0
@@ -17,8 +18,8 @@ function Main() {
     docker-compose --env-file "./conf/peers.env" -f "${DOCKER_CPS_FILE}" up -d
     [[ $? -ne 0 ]] && $ErrMessage "Error starting Sawtooth network" && exit 1
 
-    for nodeID in {0..4}; do
-        VerifyRestAPIUp ${nodeID}
+    for i in {0..4}; do
+        VerifyRestAPIUp ${i}
         [[ $? -ne 0 ]] && $ErrMessage "Error verifying REST API" && exit 1
     done
 
