@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source conf/peers.env
+source conf/sh.env
 
-docker-compose -f "${DOCKER_CPS_FILE}" down
 
+docker-compose --env-file "./conf/peers.env" -f "${DOCKER_CPS_FILE}" down

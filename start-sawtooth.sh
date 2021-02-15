@@ -14,7 +14,7 @@ function VerifyRestAPIUp() {
 }
 
 function Main() {
-    docker-compose -env-file conf/peers.env -f "${DOCKER_CPS_FILE}" up -d
+    docker-compose --env-file "./conf/peers.env" -f "${DOCKER_CPS_FILE}" up -d
     [[ $? -ne 0 ]] && $ErrMessage "Error starting Sawtooth network" && exit 1
 
     for nodeID in {0..4}; do
