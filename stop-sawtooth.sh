@@ -1,4 +1,6 @@
 #!/bin/bash
 
-docker-compose -f sawtooth-default-poet.yaml down
+source conf/peers.env
+
+docker-compose -f "${DOCKER_CPS_FILE}" down
 
