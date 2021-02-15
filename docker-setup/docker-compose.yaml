@@ -18,9 +18,9 @@ version: "3.8"
 x-logging:
   &default-logging
   options:
-    max-size: '12m'
-    max-file: '5'
-  driver: json-file
+    max-size: ${LOGGING_MAX_SIZE}
+    max-file: ${LOGGING_MAX_FILE}
+  driver: ${LOGGING_DRIVER}
 
 volumes:
   poet-shared:
