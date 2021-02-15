@@ -14,7 +14,7 @@ function VerifyRestAPIUp() {
 }
 
 function Main() {
-    docker-compose -f sawtooth-default-poet.yaml up -d
+    docker-compose -f docker-compose.yaml up -d
     [[ $? -ne 0 ]] && $ErrMessage "Error starting Sawtooth network" && exit 1
 
     for nodeID in {0..4}; do
@@ -43,7 +43,7 @@ function Main() {
         "]'"
 
     docker exec -t sawtooth-shell-default \
-        sh -c "sawtooth settings list --url http://sawtooth-rest-api-default-0:8008"
+        sh -c "sawtooth settings list --url http://${REST_API_CTX_PFX}-0:8008"
 }
 
 Main "$@"
