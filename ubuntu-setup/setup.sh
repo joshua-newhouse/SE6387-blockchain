@@ -56,17 +56,20 @@ function InstallSawtooth() {
 function Main() {
     $InfoMessage "Installing Sawtooth"
     InstallSawtooth
-    [[ $? -ne 0 ]] && $ErrMessage "Failed installing Sawtooth" && exit 1
+    [[ $? -ne 0 ]] && $ErrMessage "Failed installing Sawtooth" && return 1
 
     dpkg -l '*sawtooth*'
 
     $InfoMessage "Setting up permissions"
     SetupPermissions
-    [[ $? -ne 0 ]] && $ErrMessage "Failed setting up permissions" && exit 1
+    [[ $? -ne 0 ]] && $ErrMessage "Failed setting up permissions" && return 1
 
     $InfoMessage "Setting up keys"
     SetupKeys "${SAWTOOTH_USR_KEY}"
-    [[ $? -ne 0 ]] && $ErrMessage "Failed setting up keys" && exit 1
+    [[ $? -ne 0 ]] && $ErrMessage "Failed setting up keys" && return 1
+
+    return 0
 }
 
 Main "$@"
+exit $?

@@ -43,7 +43,7 @@ function Main() {
     [[ $? -ne 0 ]] && $ErrMessage "Failed initializing other consensus settings" && exit 1
 
     $InfoMessage "Creating a single genesis batch"
-    sudo -u sawtooth sawadm genesis config-genesis.batch config-consensus.batch poet.batch poet-settings.batch
+    sudo -u "${SAWTOOTH_USR}" sawadm genesis config-genesis.batch config-consensus.batch poet.batch poet-settings.batch
     [[ $? -ne 0 ]] && $ErrMessage "Failed to create a single genesis batch" && exit 1
 
     popd || exit 1
