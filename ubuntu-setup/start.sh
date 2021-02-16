@@ -48,6 +48,8 @@ function StartValidator() {
 }
 
 function Main() {
+    rm -f "${SAWTOOTH_PROCESSES}"
+
     $InfoMessage "Starting Validator"
     StartValidator
     [[ $? -ne 0 ]] && $ErrMessage "Failed starting Validator" && return 1

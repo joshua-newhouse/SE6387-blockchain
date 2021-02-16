@@ -22,7 +22,6 @@ function Main() {
     done < "${SAWTOOTH_PROCESSES}"
 
     $InfoMessage "Deleting data"
-    rm -f "${SAWTOOTH_PROCESSES}" &&
     rm -rf /var/lib/sawtooth/* &&
     rm -rf /var/log/sawtooth/*
     [[ $? -ne 0 ]] && $ErrMessage "Failed deleting data" && return 1
