@@ -7,6 +7,8 @@ source conf/setup.env
 
 
 function TestNode() {
+    sleep 10
+
     curl -s http://localhost:8008/blocks
     sawtooth block list
 
@@ -17,7 +19,7 @@ function RunDetachedProcess() {
     local process="${1}"
 
     $InfoMessage "Starting process ${process}"
-    nohup "${process}" &> /dev/null &
+    nohup ${process} &> /dev/null &
     [[ $? -ne 0 ]] && $WarnMessage "Failed starting ${process}" && return 1
 
     local pid=$!

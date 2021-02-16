@@ -9,7 +9,7 @@ function Main() {
     $InfoMessage "Gracefully terminating processes"
     while read -r pid; do
         echo "Stopping ${pid}"
-        kill "${pid}"
+        sudo kill "${pid}"
     done < "${SAWTOOTH_PROCESSES}"
 
     local waitTimeSeconds=15
@@ -18,7 +18,7 @@ function Main() {
 
     $InfoMessage "Forcefully terminating remaining processes"
     while read -r pid; do
-        kill -9 "${pid}" 2 > /dev/null
+        sudo kill -9 "${pid}" 2 > /dev/null
     done < "${SAWTOOTH_PROCESSES}"
 
     $InfoMessage "Deleting data"
