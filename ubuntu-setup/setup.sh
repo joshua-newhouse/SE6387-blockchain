@@ -60,6 +60,10 @@ function Main() {
 
     dpkg -l '*sawtooth*'
 
+    $InfoMessage "Creating Sawtooth home directory ${SAWTOOTH_HOME}"
+    mkdir -p "${SAWTOOTH_HOME}"
+    [[ $? -ne 0 ]] && $ErrMessage "Failed creating ${SAWTOOTH_HOME}" && return 1
+
     $InfoMessage "Setting up permissions"
     SetupPermissions
     [[ $? -ne 0 ]] && $ErrMessage "Failed setting up permissions" && return 1
