@@ -4,22 +4,27 @@ source ../util/logging.sh
 
 source conf/setup.env
 
+function SignalProcesses() {
+    local signal="${1}"
+
+    while read -r pid; do
+        echo "Signalling ${pid}"
+
+        local pgid=$(ps opgid= "${pid}" | tr -d ' ')
+        [[ "${pgid}" ]] && sudo kill "${signal}" -"${pgid}"
+    done < "${SAWTOOTH_PROCESSES}"
+}
 
 function Main() {
     $InfoMessage "Gracefully terminating processes"
-    while read -r pid; do
-        echo "Stopping ${pid}"
-        sudo kill -- -"$(ps opgid= "${pid}" | tr -d ' ')"
-    done < "${SAWTOOTH_PROCESSES}"
+    SignalProcesses --
 
     local waitTimeSeconds=15
     $InfoMessage "Waiting ${waitTimeSeconds} seconds for processes to terminate"
     sleep ${waitTimeSeconds}
 
     $InfoMessage "Forcefully terminating remaining processes"
-    while read -r pid; do
-        sudo kill -9 -"$(ps opgid= "${pid}" | tr -d ' ')"
-    done < "${SAWTOOTH_PROCESSES}"
+    SignalProcesses -9
 
     return 0
 }
