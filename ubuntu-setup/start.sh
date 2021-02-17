@@ -18,7 +18,7 @@ function TestNode() {
 function RunDetachedProcess() {
     local process="${1}"
 
-    $InfoMessage "Starting process ${process}"
+    echo "Starting process ${process}"
     nohup ${process} &> /dev/null &
     [[ $? -ne 0 ]] && $WarnMessage "Failed starting ${process}" && return 1
 
@@ -49,6 +49,12 @@ function StartValidator() {
 
 function Main() {
     rm -f "${SAWTOOTH_PROCESSES}"
+
+    if [[ ! "$(ls -A /var/lib/sawtooth/)" ]]; then
+        $InfoMessage "Data directory empty, creating genesis block"
+        ./create-genesis-block.sh
+        [[ $? -ne 0 ]] && $ErrMessage "Failed creating genesis block" && return 1
+    fi
 
     $InfoMessage "Starting Validator"
     StartValidator

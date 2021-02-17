@@ -21,11 +21,6 @@ function Main() {
         sudo kill -9 "${pid}" 2 > /dev/null
     done < "${SAWTOOTH_PROCESSES}"
 
-    $InfoMessage "Deleting data"
-    rm -rf /var/lib/sawtooth/* &&
-    rm -rf /var/log/sawtooth/*
-    [[ $? -ne 0 ]] && $ErrMessage "Failed deleting data" && return 1
-
     return 0
 }
 
