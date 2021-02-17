@@ -3,6 +3,7 @@
 source ../util/logging.sh
 source ../util/iterator.sh
 
+source conf/peers.env
 source conf/setup.env
 
 
