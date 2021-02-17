@@ -48,7 +48,7 @@ function InstallSawtooth() {
 
     $InfoMessage "Installing required packages"
     sudo apt-get install -y ${REQUIRED_PKGS}
-    [[ $? -ne 0 ]] && $WarnMessage "Failed installing packages" && return 1
+    [[ $? -ne 0 ]] && $WarnMessage "Failed installing some packages"
 
     return 0
 }
@@ -56,7 +56,6 @@ function InstallSawtooth() {
 function Main() {
     $InfoMessage "Installing Sawtooth"
     InstallSawtooth
-    [[ $? -ne 0 ]] && $ErrMessage "Failed installing Sawtooth" && return 1
 
     dpkg -l '*sawtooth*'
 
