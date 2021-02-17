@@ -8,10 +8,9 @@ function SignalProcesses() {
     local signal="${1}"
 
     while read -r pid; do
-        echo "Signalling ${pid}"
-
         local pgid=$(ps opgid= "${pid}" | tr -d ' ')
-        [[ "${pgid}" ]] && sudo kill "${signal}" -"${pgid}"
+        [[ "${pgid}" ]] && echo "Signalling PGID: ${pgid} for PID: ${pid}" &&
+            sudo kill "${signal}" -"${pgid}"
     done < "${SAWTOOTH_PROCESSES}"
 }
 
