@@ -17,7 +17,7 @@ function SetupKeys() {
     $InfoMessage "Renaming pem files"
     for pem in /etc/sawtooth/*.pem.dpkg-new; do
         mv "${pem}" "${pem/.dpkg-new/}"
-        [[ $? -ne 0 ]] && $WarnMessage "Failed renaming ${pem}" && return 1
+        [[ $? -ne 0 ]] && $WarnMessage "Failed renaming ${pem}"
     done
 
     return 0
