@@ -10,8 +10,8 @@ function SetupKeys() {
     local usrKey="${1}"
 
     $InfoMessage "Generating keys"
-    sawtooth keygen "${usrKey}" &&
-        sudo sawadm keygen
+    sawtooth keygen --force "${usrKey}" &&
+        sudo sawadm keygen --force
     [[ $? -ne 0 ]] && $WarnMessage "Failed generating keys" && return 1
 
     $InfoMessage "Renaming pem files"
