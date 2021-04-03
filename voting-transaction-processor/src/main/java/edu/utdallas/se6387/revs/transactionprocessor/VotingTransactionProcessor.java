@@ -1,4 +1,4 @@
-package edu.utdallas.se6387.revs;
+package edu.utdallas.se6387.revs.transactionprocessor;
 
 import sawtooth.sdk.processor.TransactionProcessor;
 
