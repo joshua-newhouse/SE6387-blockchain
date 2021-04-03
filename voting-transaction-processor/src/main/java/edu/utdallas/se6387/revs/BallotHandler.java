@@ -8,6 +8,7 @@ import sawtooth.sdk.processor.exceptions.InvalidTransactionException;
 import sawtooth.sdk.protobuf.TpProcessRequest;
 
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.util.Collection;
 import java.util.Collections;
 
@@ -16,15 +17,17 @@ public class BallotHandler implements TransactionHandler {
 
     public BallotHandler() throws UnsupportedEncodingException {
         this.nameSpaces = Collections.singletonList(
-                Utils.hash512(this.transactionFamilyName().getBytes("UTF-8")).substring(0, 6)
+                Utils.hash512(this.transactionFamilyName().getBytes(StandardCharsets.UTF_8)).substring(0, 6)
         );
     }
 
+    /* TODO: Externalize transaction family name */
     @Override
     public String transactionFamilyName() {
         return "vote";
     }
 
+    /* TODO: Externalize version */
     @Override
     public String getVersion() {
         return "0.1.0";
