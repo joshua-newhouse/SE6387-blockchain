@@ -6,11 +6,11 @@ import lombok.Setter;
 @Getter
 @Setter
 public class BallotHeader {
-    private String state;
-    private String date;
-    private String type;
-    private String county;
-    private String precinct;
+    protected String state;
+    protected String date;
+    protected String type;
+    protected String county;
+    protected String precinct;
 
     public BallotHeader() {
     }

@@ -8,7 +8,7 @@ import java.util.List;
 @Getter
 @Setter
 public class Race {
-    private String raceName;
+    protected String raceName;
     private List<Candidate> candidates;
 
     public Race() {

@@ -1,5 +1,6 @@
 package edu.utdallas.se6387.revs.votingclient.controllers;
 
+import edu.utdallas.se6387.revs.votingclient.batch.BatchingService;
 import edu.utdallas.se6387.revs.votingclient.data.RegistrationRepository;
 import edu.utdallas.se6387.revs.votingclient.models.Ballot;
 import org.slf4j.Logger;
@@ -20,6 +21,9 @@ public class VotingController {
 
     @Autowired
     RegistrationRepository registrationRepository;
+
+    @Autowired
+    BatchingService batchingService;
 
     @PostMapping(value = "/registration", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Ballot> getBallotForRegistration(@RequestBody byte[] certificate) {
@@ -56,6 +60,7 @@ public class VotingController {
         /* Get ballot from database for the public key and verify it is the correct ballot */
         /* Send to blockchain via REST and return status */
 
+        batchingService.send(completedBallot);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }
