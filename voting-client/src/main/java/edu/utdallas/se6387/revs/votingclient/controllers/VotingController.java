@@ -3,6 +3,7 @@ package edu.utdallas.se6387.revs.votingclient.controllers;
 import edu.utdallas.se6387.revs.votingclient.batch.BatchingService;
 import edu.utdallas.se6387.revs.votingclient.data.RegistrationRepository;
 import edu.utdallas.se6387.revs.votingclient.models.Ballot;
+import edu.utdallas.se6387.revs.votingclient.models.CompletedBallot;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,7 +53,7 @@ public class VotingController {
 
     /* TODO: Implement this */
     @PostMapping(value = "vote", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Void> processVote(@RequestBody Ballot completedBallot) {
+    public ResponseEntity<Void> processVote(@RequestBody CompletedBallot completedBallot) {
         /* CompletedBallot -> has different header */
         /* Get digital certificate from header and verify CA */
         /* Verify signature in ballot header with the public key */
