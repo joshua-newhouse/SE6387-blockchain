@@ -5,6 +5,7 @@ import com.google.protobuf.ByteString;
 import edu.utdallas.se6387.revs.votingclient.models.CompletedBallot;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import sawtooth.sdk.protobuf.*;
@@ -23,12 +24,15 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.stream.Collectors;
 
 @Service
+@EnableScheduling
 public class SawtoothRESTBatchingService implements BatchingService {
     private static final Logger LOGGER = LoggerFactory.getLogger(SawtoothRESTBatchingService.class);
     private static final int MAX_BATCH_SIZE = 100;
 
     private final Signer signer;
     private final BlockingQueue<Transaction> transactionQueue;
+
+    private long batchesSent = 0L;
 
     public SawtoothRESTBatchingService() {
         Secp256k1Context context = new Secp256k1Context();
@@ -106,11 +110,10 @@ public class SawtoothRESTBatchingService implements BatchingService {
                 .build();
     }
 
-    @Scheduled(fixedRate = 1000)
+    @Scheduled(fixedRate = 10000)
     private void sendBatch() {
         LOGGER.info("Sending batches");
 
-        int batchesSent = 0;
         Batch b;
         while((b = createBatch()) != null) {
             byte[] batchListBytes = BatchList.newBuilder()
@@ -122,6 +125,6 @@ public class SawtoothRESTBatchingService implements BatchingService {
             batchesSent++;
         }
 
-        LOGGER.info("Sent {} batches", batchesSent);
+        LOGGER.info("{} total batches sent to blockchain network", batchesSent);
     }
 }
