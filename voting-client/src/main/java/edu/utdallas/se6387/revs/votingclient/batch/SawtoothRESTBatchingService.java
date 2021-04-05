@@ -121,7 +121,7 @@ public class SawtoothRESTBatchingService implements BatchingService {
                     .build()
                     .toByteArray();
 
-            LOGGER.info("{}", batchListBytes);
+            LOGGER.info("{}", new String(batchListBytes));
             batchesSent++;
         }
 
