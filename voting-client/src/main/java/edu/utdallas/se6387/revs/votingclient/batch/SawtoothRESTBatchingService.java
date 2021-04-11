@@ -8,6 +8,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Mono;
 import sawtooth.sdk.protobuf.*;
 import sawtooth.sdk.signing.PrivateKey;
 import sawtooth.sdk.signing.Secp256k1Context;
@@ -28,9 +30,11 @@ import java.util.stream.Collectors;
 public class SawtoothRESTBatchingService implements BatchingService {
     private static final Logger LOGGER = LoggerFactory.getLogger(SawtoothRESTBatchingService.class);
     private static final int MAX_BATCH_SIZE = 100;
+    private static final String SAWTOOTH_REST_URL = "http://192.168.1.227:8008/batches";
 
     private final Signer signer;
     private final BlockingQueue<Transaction> transactionQueue;
+    private final WebClient.Builder webClientBuilder = WebClient.builder();
 
     private long batchesSent = 0L;
 
@@ -122,9 +126,21 @@ public class SawtoothRESTBatchingService implements BatchingService {
                     .toByteArray();
 
             LOGGER.info("{}", new String(batchListBytes));
+
+            postBatch(batchListBytes);
             batchesSent++;
         }
 
         LOGGER.info("{} total batches sent to blockchain network", batchesSent);
+    }
+
+    private void postBatch(byte[] batchListBytes) {
+        Mono<byte[]> retVal = webClientBuilder.build()
+                .post()
+                .uri(SAWTOOTH_REST_URL)
+                .retrieve()
+                .bodyToMono(byte[].class);
+
+        retVal.subscribe(resp -> LOGGER.info(new String(resp)));
     }
 }
