@@ -6,11 +6,12 @@ source ../util/iterator.sh
 source conf/peers.env
 source conf/setup.env
 
+THIS_IP_ADDR="$(hostname -I | cut -f 1 -d ' ')"
 
 function TestNode() {
     sleep 10
 
-    curl -s http://localhost:8008/blocks
+    curl -s http://${THIS_IP_ADDR}:8008/blocks
     sawtooth block list
 
     return 0
@@ -62,6 +63,9 @@ function Main() {
     [[ $? -ne 0 ]] && $ErrMessage "Failed starting Validator" && return 1
 
     $InfoMessage "Starting REST API"
+    cp conf/rest_api.toml /etc/sawtooth/
+    [[ $? -ne 0 ]] && $ErrMessage "Failed copying rest_api.toml" && return 1
+
     RunDetachedProcess "sudo -u ${SAWTOOTH_USR} sawtooth-rest-api -v"
     [[ $? -ne 0 ]] && $ErrMessage "Failed starting REST API" && return 1
 
@@ -70,7 +74,7 @@ function Main() {
     [[ $? -ne 0 ]] && $ErrMessage "Failed starting transaction processors" && return 1
 
     $InfoMessage "Starting the Consensus Engine"
-    RunDetachedProcess "sudo -u ${SAWTOOTH_USR} poet-engine -vv --connect tcp://$(hostname -I | cut -f 1 -d ' '):5050"
+    RunDetachedProcess "sudo -u ${SAWTOOTH_USR} poet-engine -vv --connect tcp://${THIS_IP_ADDR}:5050"
     [[ $? -ne 0 ]] && $ErrMessage "Failed starting transaction processors" && return 1
 
     $InfoMessage "Verifying this node is fully running"
