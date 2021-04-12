@@ -3,7 +3,6 @@
 source ../util/logging.sh
 source ../util/iterator.sh
 
-source conf/peers.env
 source conf/setup.env
 
 THIS_IP_ADDR="$(hostname -I | cut -f 1 -d ' ')"
@@ -43,7 +42,7 @@ function StartValidator() {
     command="${command} --bind network:${VALIDATOR_NETWORK_ENDPT}"
     command="${command} --bind consensus:${VALIDATOR_CONSENSUS_ENDPT}"
     command="${command} --endpoint ${VALIDATOR_PUBLIC_ENDPT}"
-    command="${command} --peers ${PEERS_LIST}"
+    command="${command} --peers ${PEERS_LIST["$(hostname)"]}"
 
     RunDetachedProcess "${command}"
     return $?
