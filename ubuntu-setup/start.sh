@@ -62,7 +62,7 @@ function Main() {
     [[ $? -ne 0 ]] && $ErrMessage "Failed starting Validator" && return 1
 
     $InfoMessage "Starting REST API"
-    RunDetachedProcess "sudo -u ${SAWTOOTH_USR} sawtooth-rest-api -v"
+    RunDetachedProcess "sudo -u ${SAWTOOTH_USR} sawtooth-rest-api -v --bind http://$(hostname -I | cut -f 1 -d ' '):8080"
     [[ $? -ne 0 ]] && $ErrMessage "Failed starting REST API" && return 1
 
     $InfoMessage "Starting Transaction Processors"
