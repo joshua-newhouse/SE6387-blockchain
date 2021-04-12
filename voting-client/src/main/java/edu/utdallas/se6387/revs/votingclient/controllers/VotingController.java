@@ -1,5 +1,6 @@
 package edu.utdallas.se6387.revs.votingclient.controllers;
 
+import edu.utdallas.se6387.revs.votingclient.batch.BatchingException;
 import edu.utdallas.se6387.revs.votingclient.batch.BatchingService;
 import edu.utdallas.se6387.revs.votingclient.data.RegistrationRepository;
 import edu.utdallas.se6387.revs.votingclient.models.Ballot;
@@ -52,7 +53,7 @@ public class VotingController {
     }
 
     /* TODO: Implement this */
-    @PostMapping(value = "vote", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/vote", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> processVote(@RequestBody CompletedBallot completedBallot) {
         /* CompletedBallot -> has different header */
         /* Get digital certificate from header and verify CA */
@@ -61,7 +62,13 @@ public class VotingController {
         /* Get ballot from database for the public key and verify it is the correct ballot */
         /* Send to blockchain via REST and return status */
 
-        batchingService.send(completedBallot);
-        return new ResponseEntity<>(HttpStatus.OK);
+        HttpStatus status = HttpStatus.OK;
+        try {
+            batchingService.send(completedBallot);
+        } catch (BatchingException e) {
+            LOGGER.warn("Failed creating batch", e);
+            status = HttpStatus.INTERNAL_SERVER_ERROR;
+        }
+        return new ResponseEntity<>(status);
     }
 }
