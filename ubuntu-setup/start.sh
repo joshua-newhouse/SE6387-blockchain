@@ -42,7 +42,7 @@ function StartValidator() {
     command="${command} --bind network:${VALIDATOR_NETWORK_ENDPT}"
     command="${command} --bind consensus:${VALIDATOR_CONSENSUS_ENDPT}"
     command="${command} --endpoint ${VALIDATOR_PUBLIC_ENDPT}"
-    command="${command} --peers ${PEERS_LIST["$(hostname)"]}"
+    command="${command} --peers ${PEER_LIST["$(hostname)"]}"
 
     RunDetachedProcess "${command}"
     return $?
