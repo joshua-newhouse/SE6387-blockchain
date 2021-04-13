@@ -3,14 +3,14 @@
 source ../util/logging.sh
 source ../util/iterator.sh
 
-source conf/peers.env
 source conf/setup.env
 
+THIS_IP_ADDR="$(hostname -I | cut -f 1 -d ' ')"
 
 function TestNode() {
     sleep 10
 
-    curl -s http://localhost:8008/blocks
+    curl -s http://${THIS_IP_ADDR}:8008/blocks
     sawtooth block list
 
     return 0
@@ -42,7 +42,7 @@ function StartValidator() {
     command="${command} --bind network:${VALIDATOR_NETWORK_ENDPT}"
     command="${command} --bind consensus:${VALIDATOR_CONSENSUS_ENDPT}"
     command="${command} --endpoint ${VALIDATOR_PUBLIC_ENDPT}"
-    command="${command} --peers ${PEERS_LIST}"
+    command="${command} --peers ${PEERS_LIST["$(hostname)"]}"
 
     RunDetachedProcess "${command}"
     return $?
@@ -62,7 +62,10 @@ function Main() {
     [[ $? -ne 0 ]] && $ErrMessage "Failed starting Validator" && return 1
 
     $InfoMessage "Starting REST API"
-    RunDetachedProcess "sudo -u ${SAWTOOTH_USR} sawtooth-rest-api -v --bind http://$(hostname -I | cut -f 1 -d ' '):8080"
+    cp conf/rest_api.toml /etc/sawtooth/
+    [[ $? -ne 0 ]] && $ErrMessage "Failed copying rest_api.toml" && return 1
+
+    RunDetachedProcess "sudo -u ${SAWTOOTH_USR} sawtooth-rest-api -v"
     [[ $? -ne 0 ]] && $ErrMessage "Failed starting REST API" && return 1
 
     $InfoMessage "Starting Transaction Processors"
@@ -70,7 +73,7 @@ function Main() {
     [[ $? -ne 0 ]] && $ErrMessage "Failed starting transaction processors" && return 1
 
     $InfoMessage "Starting the Consensus Engine"
-    RunDetachedProcess "sudo -u ${SAWTOOTH_USR} poet-engine -vv --connect tcp://$(hostname -I | cut -f 1 -d ' '):5050"
+    RunDetachedProcess "sudo -u ${SAWTOOTH_USR} poet-engine -vv --connect tcp://${THIS_IP_ADDR}:5050"
     [[ $? -ne 0 ]] && $ErrMessage "Failed starting transaction processors" && return 1
 
     $InfoMessage "Verifying this node is fully running"
