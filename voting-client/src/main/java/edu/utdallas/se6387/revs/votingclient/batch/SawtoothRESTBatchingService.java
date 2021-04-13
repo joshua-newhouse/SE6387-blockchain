@@ -5,6 +5,8 @@ import com.google.protobuf.ByteString;
 import edu.utdallas.se6387.revs.votingclient.models.CompletedBallot;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
@@ -30,11 +32,11 @@ import java.util.stream.Collectors;
 public class SawtoothRESTBatchingService implements BatchingService {
     private static final Logger LOGGER = LoggerFactory.getLogger(SawtoothRESTBatchingService.class);
     private static final int MAX_BATCH_SIZE = 100;
-    private static final String SAWTOOTH_REST_URL = "http://192.168.1.227:8008/batches";
+    private static final String SAWTOOTH_REST_URL = "http://192.168.1.227:8008";
 
     private final Signer signer;
     private final BlockingQueue<Transaction> transactionQueue;
-    private final WebClient.Builder webClientBuilder = WebClient.builder();
+    private final WebClient webClient = WebClient.create(SAWTOOTH_REST_URL);
 
     private long batchesSent = 0L;
 
@@ -135,9 +137,10 @@ public class SawtoothRESTBatchingService implements BatchingService {
     }
 
     private void postBatch(byte[] batchListBytes) {
-        Mono<byte[]> retVal = webClientBuilder.build()
-                .post()
-                .uri(SAWTOOTH_REST_URL)
+        Mono<byte[]> retVal = webClient.post()
+                .uri("/batches")
+                .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_OCTET_STREAM_VALUE)
+                .body(Mono.just(batchListBytes), byte[].class)
                 .retrieve()
                 .bodyToMono(byte[].class);
 
