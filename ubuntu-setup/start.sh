@@ -24,6 +24,7 @@ function RunDetachedProcess() {
     [[ $? -ne 0 ]] && $WarnMessage "Failed starting ${process}" && return 1
 
     local pid=$!
+    $InfoMessage "${process} started with PID: ${pid}"
     echo ${pid} >> "${SAWTOOTH_PROCESSES}"
 
     return 0
