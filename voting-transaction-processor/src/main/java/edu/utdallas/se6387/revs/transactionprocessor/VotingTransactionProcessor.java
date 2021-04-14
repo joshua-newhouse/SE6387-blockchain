@@ -14,7 +14,7 @@ import java.util.concurrent.Executors;
 @SpringBootApplication
 public class VotingTransactionProcessor {
     private static final Logger LOGGER = LoggerFactory.getLogger(VotingTransactionProcessor.class);
-    private static final String validatorAddress = "tcp://validator:4004";
+    private static final String validatorAddress = "tcp://192.168.1.227:4004";
 
     public static void main(String[] args) {
         ConfigurableApplicationContext ctx =
@@ -26,7 +26,7 @@ public class VotingTransactionProcessor {
         try {
             transactionProcessor.addHandler(new BallotHandler());
             executorService.submit(transactionProcessor);
-            LOGGER.info("Started voting transaction processor for {}", args[0]);
+            LOGGER.info("Started voting transaction processor for {}", validatorAddress);
         } catch(UnsupportedEncodingException e) {
             LOGGER.error("Failed adding ballot handler.", e);
             SpringApplication.exit(ctx, () -> 16);
