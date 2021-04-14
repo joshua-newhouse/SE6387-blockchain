@@ -22,7 +22,7 @@
         <appender-ref ref="RollingFile-Appender"/>
     </appender>
 
-    <logger name="voting.client" level="debug" additivity="false">
+    <logger name="voting.transaction.processor" level="debug" additivity="false">
         <appender-ref ref="Async-Appender"/>
         <appender-ref ref="STDOUT"/>
     </logger>

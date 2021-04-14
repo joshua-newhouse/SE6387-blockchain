@@ -1,6 +1,6 @@
 package edu.utdallas.se6387.revs.transactionprocessor;
 
-import sawtooth.sdk.processor.Context;
+import sawtooth.sdk.processor.State;
 import sawtooth.sdk.processor.TransactionHandler;
 import sawtooth.sdk.processor.Utils;
 import sawtooth.sdk.processor.exceptions.InternalError;
@@ -39,8 +39,7 @@ public class BallotHandler implements TransactionHandler {
     }
 
     @Override
-    public void apply(TpProcessRequest tpProcessRequest, Context context)
-            throws InvalidTransactionException, InternalError {
+    public void apply(TpProcessRequest tpProcessRequest, State state) throws InvalidTransactionException, InternalError {
 
     }
 }
