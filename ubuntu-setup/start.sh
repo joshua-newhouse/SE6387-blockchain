@@ -5,8 +5,6 @@ source ../util/iterator.sh
 
 source conf/setup.env
 
-THIS_IP_ADDR="$(hostname -I | cut -f 1 -d ' ')"
-
 function TestNode() {
     sleep 10
 
