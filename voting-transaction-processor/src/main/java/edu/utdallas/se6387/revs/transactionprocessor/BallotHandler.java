@@ -69,31 +69,33 @@ public class BallotHandler implements TransactionHandler {
             LOGGER.info("Voter Certificate: {}", voterCert);
             LOGGER.info("Completed Ballot: {}", ballot.toJSONString());
         } catch(Exception e) {
-            LOGGER.warn("Failed reading completed ballot.", e);
-            return;
+            throw new InvalidTransactionException("Failed reading ballot.");
         }
 
         String voterAddress = addressPrefix + Utils.hash512(
                 voterCert.getBytes(StandardCharsets.UTF_8)
         ).substring(0, 64);
 
-        try {
-            Map<String, ByteString> ledgerEntry = state.getState(
-                    Collections.singletonList(voterAddress)
+        Map<String, ByteString> ledgerEntry = state.getState(
+                Collections.singletonList(voterAddress)
+        );
+
+        if(ledgerEntry.isEmpty()) {
+            LOGGER.info("Adding new vote to ledger: {}", voterAddress);
+
+            Map.Entry<String, ByteString> newVote = new AbstractMap.SimpleEntry<>(
+                    voterAddress, ByteString.copyFromUtf8(ballot.toJSONString())
             );
 
-            if(ledgerEntry.isEmpty()) {
-                Map.Entry<String, ByteString> newVote = new AbstractMap.SimpleEntry<>(
-                        voterAddress, ByteString.copyFromUtf8(ballot.toJSONString())
-                );
+            Collection<Map.Entry<String, ByteString>> newLedgerEntry = Collections.singletonList(newVote);
+            state.setState(newLedgerEntry);
 
-                Collection<Map.Entry<String, ByteString>> newLedgerEntry = Collections.singletonList(newVote);
-                state.setState(newLedgerEntry);
-            } else {
-                LOGGER.info("Ballot already present in ledger for address {} and cert {}", voterAddress, voterCert);
-            }
-        } catch (Exception e) {
-            LOGGER.warn("Failed putting vote to blockchain at address {}.", voterAddress, e);
+            LOGGER.info("Successfully added new vote to ledger: {}", voterAddress);
+        } else {
+            LOGGER.warn("Vote already present at: {}", voterAddress);
+            throw new InvalidTransactionException(
+                    String.format("Ballot already present in ledger for address %s and cert %s", voterAddress, voterCert)
+            );
         }
     }
 }
