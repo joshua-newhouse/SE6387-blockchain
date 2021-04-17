@@ -41,8 +41,18 @@
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
+            <artifactId>slf4j-api</artifactId>
             <version>1.7.30</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>1.2.3</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.2.3</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
@@ -96,7 +106,8 @@
                             <overWrite>true</overWrite>
                         </artifactItem>
                     </artifactItems>
-                    <outputDirectory>${project.build.directory}/../../ubuntu-setup/transaction-processor</outputDirectory>
+                    <outputDirectory>${project.build.directory}/../../ubuntu-setup/transaction-processor
+                    </outputDirectory>
                     <overWriteReleases>false</overWriteReleases>
                     <overWriteSnapshots>true</overWriteSnapshots>
                 </configuration>
