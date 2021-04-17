@@ -73,6 +73,34 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>2.4.4</version>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.1.2</version>
+                <executions>
+                    <execution>
+                        <id>copy</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <artifactItems>
+                        <artifactItem>
+                            <groupId>edu.utdallas.se6387</groupId>
+                            <artifactId>voting-transaction-processor</artifactId>
+                            <version>0.1.0-SNAPSHOT</version>
+                            <type>jar</type>
+                            <overWrite>true</overWrite>
+                        </artifactItem>
+                    </artifactItems>
+                    <outputDirectory>${project.build.directory}/../../ubuntu-setup/transaction-processor</outputDirectory>
+                    <overWriteReleases>false</overWriteReleases>
+                    <overWriteSnapshots>true</overWriteSnapshots>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
