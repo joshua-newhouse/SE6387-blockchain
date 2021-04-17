@@ -1,0 +1,40 @@
+package edu.utdallas.se6387.revs.transactionprocessor.models;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.Getter;
+import lombok.Setter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.List;
+
+@Getter
+@Setter
+public class CompletedBallot {
+    private static final Logger LOGGER = LoggerFactory.getLogger(CompletedBallot.class);
+
+    private CompletedBallotHeader header;
+    private List<Selection> races;
+
+    public CompletedBallot() {
+    }
+
+    public CompletedBallot(CompletedBallotHeader header, List<Selection> races) {
+        this.header = header;
+        this.races = races;
+    }
+
+    public String toJSONString() {
+        String retVal = "";
+        ObjectMapper mapper = new ObjectMapper();
+
+        try {
+            retVal = mapper.writeValueAsString(this);
+        } catch(JsonProcessingException e) {
+            LOGGER.warn("Failed creating JSON string", e);
+        }
+
+        return retVal;
+    }
+}
