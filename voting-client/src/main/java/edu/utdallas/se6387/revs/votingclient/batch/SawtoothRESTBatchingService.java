@@ -12,6 +12,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
+import sawtooth.sdk.processor.Utils;
 import sawtooth.sdk.protobuf.*;
 import sawtooth.sdk.signing.PrivateKey;
 import sawtooth.sdk.signing.Secp256k1Context;
@@ -33,6 +34,10 @@ public class SawtoothRESTBatchingService implements BatchingService {
     private static final Logger LOGGER = LoggerFactory.getLogger(SawtoothRESTBatchingService.class);
     private static final int MAX_BATCH_SIZE = 100;
     private static final String SAWTOOTH_REST_URL = "http://192.168.1.227:8008";
+    private static final String TRANSACTION_FAMILY = "vote";
+    private static final String ADDRESS_PREFIX = Utils.hash512(
+            TRANSACTION_FAMILY.getBytes(StandardCharsets.UTF_8)
+    ).substring(0, 6);
 
     private final Signer signer;
     private final BlockingQueue<Transaction> transactionQueue;
@@ -50,10 +55,13 @@ public class SawtoothRESTBatchingService implements BatchingService {
     @Override
     public void send(CompletedBallot completedBallot) throws BatchingException {
         byte[] payloadBytes = completedBallot.toJSONString().getBytes(StandardCharsets.UTF_8);
+        String voterAddress = ADDRESS_PREFIX + Utils.hash512(
+                completedBallot.getHeader().getVoterCertificate().getBytes(StandardCharsets.UTF_8)
+        ).substring(0, 64);
 
         TransactionHeader header;
         try {
-            header = getHeader(payloadBytes);
+            header = getHeader(payloadBytes, voterAddress);
         } catch(NoSuchAlgorithmException e) {
             throw new BatchingException("Failed creating transaction header", e);
         }
@@ -71,11 +79,13 @@ public class SawtoothRESTBatchingService implements BatchingService {
         }
     }
 
-    private TransactionHeader getHeader(byte[] payloadBytes) throws NoSuchAlgorithmException {
+    private TransactionHeader getHeader(byte[] payloadBytes, String address) throws NoSuchAlgorithmException {
         return TransactionHeader.newBuilder()
                 .setSignerPublicKey(signer.getPublicKey().hex())
-                .setFamilyName("vote")
+                .setFamilyName(TRANSACTION_FAMILY)
                 .setFamilyVersion("0.1.0")
+                .addInputs(address)
+                .addOutputs(address)
                 .setPayloadSha512(hash(payloadBytes))
                 .setBatcherPublicKey(signer.getPublicKey().hex())
                 .setNonce(UUID.randomUUID().toString())

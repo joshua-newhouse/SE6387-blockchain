@@ -22,6 +22,7 @@ import java.util.Map;
 public class BallotHandler implements TransactionHandler {
     private static final Logger LOGGER = LoggerFactory.getLogger(BallotHandler.class);
 
+    private final String addressPrefix;
     private final Collection<String> nameSpaces;
 
     public BallotHandler() throws UnsupportedEncodingException {
@@ -29,8 +30,9 @@ public class BallotHandler implements TransactionHandler {
                 this.transactionFamilyName().getBytes(StandardCharsets.UTF_8)
         ).substring(0, 6);
 
-        LOGGER.debug("NAMESPACE: {}", namespace);
+        LOGGER.info("NAMESPACE: {}", namespace);
 
+        this.addressPrefix = namespace;
         this.nameSpaces = Collections.singletonList(namespace);
     }
 
@@ -58,8 +60,8 @@ public class BallotHandler implements TransactionHandler {
         String payload = tpProcessRequest.getPayload().toStringUtf8();
         LOGGER.debug("PAYLOAD: {}", payload);
 
-        String voterCert = "";
-        CompletedBallot ballot = null;
+        String voterCert;
+        CompletedBallot ballot;
         try {
             ballot = new ObjectMapper().readValue(payload, CompletedBallot.class);
             voterCert = ballot.getHeader().getVoterCertificate();
@@ -71,20 +73,27 @@ public class BallotHandler implements TransactionHandler {
             return;
         }
 
-        Map<String, ByteString> ledgerEntry = state.getState(
-                Collections.singletonList(voterCert)
-        );
+        String voterAddress = addressPrefix + Utils.hash512(
+                voterCert.getBytes(StandardCharsets.UTF_8)
+        ).substring(0, 64);
 
-        if(!ledgerEntry.isEmpty()) {
-            LOGGER.info("Ballot already present in ledger for {}", voterCert);
-            return;
+        try {
+            Map<String, ByteString> ledgerEntry = state.getState(
+                    Collections.singletonList(voterAddress)
+            );
+
+            if(ledgerEntry.isEmpty()) {
+                Map.Entry<String, ByteString> newVote = new AbstractMap.SimpleEntry<>(
+                        voterAddress, ByteString.copyFromUtf8(ballot.toJSONString())
+                );
+
+                Collection<Map.Entry<String, ByteString>> newLedgerEntry = Collections.singletonList(newVote);
+                state.setState(newLedgerEntry);
+            } else {
+                LOGGER.info("Ballot already present in ledger for address {} and cert {}", voterAddress, voterCert);
+            }
+        } catch (Exception e) {
+            LOGGER.warn("Failed putting vote to blockchain at address {}.", voterAddress, e);
         }
-
-        Map.Entry<String, ByteString> newVote = new AbstractMap.SimpleEntry<>(
-                voterCert, ByteString.copyFromUtf8(ballot.toJSONString())
-        );
-
-        Collection<Map.Entry<String, ByteString>> newLedgerEntry = Collections.singletonList(newVote);
-        state.setState(newLedgerEntry);
     }
 }
