@@ -22,7 +22,7 @@ function RunDetachedProcess() {
     local process="${1}"
 
     echo "Starting process ${process}"
-    nohup ${process} &> /dev/null &
+    nohup ${process} > "${process// /}.log" &
     [[ $? -ne 0 ]] && $WarnMessage "Failed starting ${process}" && return 1
 
     local pid=$!
