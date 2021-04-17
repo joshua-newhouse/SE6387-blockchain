@@ -5,6 +5,8 @@ source ../util/iterator.sh
 
 source conf/setup.env
 
+export PATH="${PATH}:$(pwd)"
+
 THIS_IP_ADDR="$(hostname -I | cut -f 1 -d ' ')"
 
 function TestNode() {

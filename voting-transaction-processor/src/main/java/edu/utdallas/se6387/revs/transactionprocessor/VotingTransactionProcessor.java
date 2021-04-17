@@ -14,7 +14,7 @@ import java.util.concurrent.Executors;
 @SpringBootApplication
 public class VotingTransactionProcessor {
     private static final Logger LOGGER = LoggerFactory.getLogger(VotingTransactionProcessor.class);
-    private static final String validatorAddress = "tcp://192.168.1.227:4004";
+    private static final String validatorAddress = "tcp://" + System.getProperty("validator_host_port").trim();
 
     public static void main(String[] args) {
         ConfigurableApplicationContext ctx =
