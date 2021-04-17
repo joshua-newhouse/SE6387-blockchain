@@ -5,8 +5,6 @@ source ../util/iterator.sh
 
 source conf/setup.env
 
-export PATH="${PATH}:$(pwd)"
-
 THIS_IP_ADDR="$(hostname -I | cut -f 1 -d ' ')"
 
 function TestNode() {
@@ -22,7 +20,7 @@ function RunDetachedProcess() {
     local process="${1}"
 
     echo "Starting process ${process}"
-    nohup ${process} > "${process// /}.log" &
+    nohup ${process} &> /dev/null &
     [[ $? -ne 0 ]] && $WarnMessage "Failed starting ${process}" && return 1
 
     local pid=$!
