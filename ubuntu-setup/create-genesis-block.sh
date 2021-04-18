@@ -31,6 +31,7 @@ function Main() {
     [[ $? -ne 0 ]] && $ErrMessage "Failed initializing the consensus settings" && return 1
 
     $InfoMessage "Creating a batch to register the first Sawtooth node with the Validator Registry T.P."
+    mkdir -p /home/sawtooth/sawtooth/data
     poet registration create --key /etc/sawtooth/keys/validator.priv -o poet.batch
     [[ $? -ne 0 ]] && $ErrMessage "Failed to create a batch to register the first Sawtooth node" && return 1
 
