@@ -10,7 +10,7 @@ function Main() {
     local nUserKeys=$(ls "${HOME}/.sawtooth/keys/" | wc -w)
     local nValidatorKeys=$(ls /etc/sawtooth/keys/ | wc -w)
 
-    if [[ ${nUserKeys} -ne 2 ]] || [[ ${nValidatorKeys} -ne 2 ]]; then
+    if [[ ${nUserKeys} -lt 2 ]] || [[ ${nValidatorKeys} -lt 2 ]]; then
         $ErrMessage "User or Validator keys are missing" && return 1
     fi
 
