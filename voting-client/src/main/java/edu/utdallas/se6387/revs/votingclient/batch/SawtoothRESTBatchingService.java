@@ -126,6 +126,7 @@ public class SawtoothRESTBatchingService implements BatchingService {
                 .setHeader(batchHeader.toByteString())
                 .addAllTransactions(transactions)
                 .setHeaderSignature(batchSignature)
+                .setTrace(true)
                 .build();
     }
 
