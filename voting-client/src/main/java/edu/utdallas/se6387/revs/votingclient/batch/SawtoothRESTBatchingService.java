@@ -48,6 +48,9 @@ public class SawtoothRESTBatchingService implements BatchingService {
     public SawtoothRESTBatchingService() {
         Secp256k1Context context = new Secp256k1Context();
         PrivateKey privateKey = context.newRandomPrivateKey();
+
+        LOGGER.info("NAMESPACE: {}", ADDRESS_PREFIX);
+
         this.signer = new Signer(context, privateKey);
         this.transactionQueue = new LinkedBlockingQueue<>();
     }
