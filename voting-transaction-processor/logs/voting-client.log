@@ -3341,3 +3341,7 @@ Caused by: java.net.SocketException: Network is unreachable
 11:11:45.279 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 1 total batches sent to blockchain network
 11:11:55.278 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
 11:11:55.279 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 1 total batches sent to blockchain network
+11:12:05.279 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+11:12:05.279 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 1 total batches sent to blockchain network
+11:12:15.280 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+11:12:15.280 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 1 total batches sent to blockchain network
