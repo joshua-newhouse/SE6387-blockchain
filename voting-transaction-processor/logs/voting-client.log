@@ -3293,3 +3293,33 @@ Caused by: java.net.SocketException: Network is unreachable
 11:07:45.306 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 1 total batches sent to blockchain network
 11:07:55.296 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
 11:07:55.296 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 1 total batches sent to blockchain network
+11:08:05.292 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+11:08:05.292 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 1 total batches sent to blockchain network
+11:08:15.288 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+11:08:15.288 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 1 total batches sent to blockchain network
+11:08:25.288 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+11:08:25.288 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 1 total batches sent to blockchain network
+11:08:35.285 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+11:08:35.285 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 1 total batches sent to blockchain network
+11:08:45.282 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+11:08:45.282 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 1 total batches sent to blockchain network
+11:08:55.284 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+11:08:55.284 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 1 total batches sent to blockchain network
+11:09:05.283 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+11:09:05.283 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 1 total batches sent to blockchain network
+11:09:15.286 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+11:09:15.286 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 1 total batches sent to blockchain network
+11:09:25.283 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+11:09:25.283 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 1 total batches sent to blockchain network
+11:09:35.283 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+11:09:35.283 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 1 total batches sent to blockchain network
+11:09:45.282 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+11:09:45.282 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 1 total batches sent to blockchain network
+11:09:55.284 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+11:09:55.284 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 1 total batches sent to blockchain network
+11:10:05.282 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+11:10:05.282 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 1 total batches sent to blockchain network
+11:10:15.281 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+11:10:15.282 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 1 total batches sent to blockchain network
+11:10:25.279 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+11:10:25.279 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 1 total batches sent to blockchain network
