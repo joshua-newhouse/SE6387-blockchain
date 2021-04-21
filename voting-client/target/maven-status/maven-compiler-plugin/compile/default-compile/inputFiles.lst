@@ -1,0 +1,15 @@
+/Users/kavvam/Documents/Final_Project_Josh/SE6387-blockchain/voting-client/src/main/java/edu/utdallas/se6387/revs/votingclient/batch/BatchingException.java
+/Users/kavvam/Documents/Final_Project_Josh/SE6387-blockchain/voting-client/src/main/java/edu/utdallas/se6387/revs/votingclient/models/CompletedBallotHeader.java
+/Users/kavvam/Documents/Final_Project_Josh/SE6387-blockchain/voting-client/src/main/java/edu/utdallas/se6387/revs/votingclient/models/BallotHeader.java
+/Users/kavvam/Documents/Final_Project_Josh/SE6387-blockchain/voting-client/src/main/java/edu/utdallas/se6387/revs/votingclient/data/RegistrationRepositoryDBImpl.java
+/Users/kavvam/Documents/Final_Project_Josh/SE6387-blockchain/voting-client/src/main/java/edu/utdallas/se6387/revs/votingclient/models/Selection.java
+/Users/kavvam/Documents/Final_Project_Josh/SE6387-blockchain/voting-client/src/main/java/edu/utdallas/se6387/revs/votingclient/data/RegistrationRepository.java
+/Users/kavvam/Documents/Final_Project_Josh/SE6387-blockchain/voting-client/src/main/java/edu/utdallas/se6387/revs/votingclient/models/Candidate.java
+/Users/kavvam/Documents/Final_Project_Josh/SE6387-blockchain/voting-client/src/main/java/edu/utdallas/se6387/revs/votingclient/data/TestRegistrationRepository.java
+/Users/kavvam/Documents/Final_Project_Josh/SE6387-blockchain/voting-client/src/main/java/edu/utdallas/se6387/revs/votingclient/VotingClient.java
+/Users/kavvam/Documents/Final_Project_Josh/SE6387-blockchain/voting-client/src/main/java/edu/utdallas/se6387/revs/votingclient/models/Race.java
+/Users/kavvam/Documents/Final_Project_Josh/SE6387-blockchain/voting-client/src/main/java/edu/utdallas/se6387/revs/votingclient/batch/BatchingService.java
+/Users/kavvam/Documents/Final_Project_Josh/SE6387-blockchain/voting-client/src/main/java/edu/utdallas/se6387/revs/votingclient/controllers/VotingController.java
+/Users/kavvam/Documents/Final_Project_Josh/SE6387-blockchain/voting-client/src/main/java/edu/utdallas/se6387/revs/votingclient/batch/SawtoothRESTBatchingService.java
+/Users/kavvam/Documents/Final_Project_Josh/SE6387-blockchain/voting-client/src/main/java/edu/utdallas/se6387/revs/votingclient/models/Ballot.java
+/Users/kavvam/Documents/Final_Project_Josh/SE6387-blockchain/voting-client/src/main/java/edu/utdallas/se6387/revs/votingclient/models/CompletedBallot.java

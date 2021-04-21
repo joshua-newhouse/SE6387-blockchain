@@ -1,0 +1,50 @@
+{
+  "header": {
+    "state": "Texas",
+    "date": "2020-11-03",
+    "type": "general",
+    "county": "Collin",
+    "precinct": "101A",
+    "timestamp": "2020-11-03T20:48:39Z",
+    "voterCertificate": "04ad9b7d95d570b9bd0f18cc918b735f0afb22558b566d8579b795327746138d7dc85f7359565d32d47ebc77b5fd55517a1edf106a5d4866c2fd3edbdaf7bf1125",
+    "signature": "04ad9b7d95d570b9bd0f18cc918b735f0afb22558b566d8579b795327746138d7dc85f7359565d32d47ebc77b5fd55517a1edf106a5d4866c2fd3edbdaf7bf1125"
+  },
+  "races": [
+    {
+      "raceName": "President and Vice President",
+      "candidates": [
+        {
+          "name": "Donald J. Trump, Michael R. Pence",
+          "party": "Republican"
+        }
+      ]
+    },
+    {
+      "raceName": "United States Senator",
+      "candidates": [
+        {
+          "name": "Kerry Douglass McKennon",
+          "party": "Libertarian"
+        }
+      ]
+    },
+    {
+      "raceName": "Sheriff",
+      "candidates": [
+        {
+          "name": "Warren Funk",
+          "party": "Libertarian"
+        }
+      ]
+    },
+    {
+      "raceName": "County Commissioner, Precinct No. 1",
+      "candidates": [
+        {
+          "name": "Harley David Belew",
+          "party": "Republican"
+        }
+      ]
+    }
+  ]
+}

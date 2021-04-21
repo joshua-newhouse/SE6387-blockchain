@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <property name="LOG_PATH" value="logs"/>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-1level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="RollingFile-Appender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/voting-client.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <fileNamePattern>voting-client.%i.log.zip</fileNamePattern>
+            <minIndex>1</minIndex>
+            <maxIndex>10</maxIndex>
+        </rollingPolicy>
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <maxFileSize>5MB</maxFileSize>
+        </triggeringPolicy>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-1level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="Async-Appender" class="ch.qos.logback.classic.AsyncAppender">
+        <appender-ref ref="RollingFile-Appender"/>
+    </appender>
+
+    <logger name="voting.client" level="debug" additivity="false">
+        <appender-ref ref="Async-Appender"/>
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+    <root level="INFO">-->
+        <appender-ref ref="Async-Appender"/>
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>

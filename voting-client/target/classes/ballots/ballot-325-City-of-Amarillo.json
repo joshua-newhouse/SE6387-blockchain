@@ -1,0 +1,73 @@
+{
+  "Header": {
+    "State": "Texas",
+    "Date": "2020-11-03",
+    "Type": "general",
+    "County": "Randall",
+    "Precinct": "325 City of Amarillo"
+  },
+  "Ballot": {
+    "races": [
+      {
+        "race": "President and Vice President",
+        "candidates": [
+          {
+            "name": "Donald J. Trump, Michael R. Pence",
+            "party": "Republican"
+          },
+          {
+            "name": "Joseph R. Biden, Kamala D. Harris",
+            "party": "Democratic"
+          },
+          {
+            "name": "Jo Jorgensen, Jeremy 'Spike' Cohen",
+            "party": "Libertarian"
+          },
+          {
+            "name": "Howie Hawkins, Angela Walker",
+            "party": "Green"
+          }
+        ]
+      },
+      {
+        "race": "United States Senator",
+        "candidates": [
+          {
+            "name": "John Cornyn",
+            "party": "Republican"
+          },
+          {
+            "name": "Mary 'MJ' Hegar",
+            "party": "Democratic"
+          },
+          {
+            "name": "Kerry Douglass McKennon",
+            "party": "Libertarian"
+          },
+          {
+            "name": "David B. Collins",
+            "party": "Green"
+          }
+        ]
+      },
+      {
+        "race": "Sheriff",
+        "candidates": [
+          {
+            "name": "Christopher Forbis",
+            "party": "Republican"
+          }
+        ]
+      },
+      {
+        "race": "County Commissioner, Precinct 3",
+        "candidates": [
+          {
+            "name": "Bob Robinson",
+            "party": "Republican"
+          }
+        ]
+      }
+    ]
+  }
+}
