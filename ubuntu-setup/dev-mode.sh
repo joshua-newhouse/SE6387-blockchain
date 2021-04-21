@@ -24,7 +24,9 @@ function ControlService() {
     local command="${2}"
 
     sudo systemctl "${command}" "${service}.service"
-    [[ $? -ne 0 ]] && $ErrMessage "Failed starting ${service}" && return 1
+    [[ $? -ne 0 ]] && $ErrMessage "Failed ${command}ing ${service}" && return 1
+
+    return 0
 }
 function Main() {
     local command="${1}"
