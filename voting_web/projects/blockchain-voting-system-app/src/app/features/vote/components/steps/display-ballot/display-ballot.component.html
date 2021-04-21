@@ -1,0 +1,14 @@
+<label id="example-radio-group-label">Pick your favorite candidate</label>
+<mat-radio-group
+  aria-labelledby="example-radio-group-label"
+  class="example-radio-group"
+  [(ngModel)]="favoriteCandidate">
+  <mat-radio-button class="example-radio-button" *ngFor="let candidate of candidates" [value]="candidate">
+    {{candidate}}
+  </mat-radio-button>
+</mat-radio-group>
+
+<div>
+  <button mat-button matStepperPrevious type="button">Back</button>
+  <button mat-button matStepperNext type="button" (click)="next()">Next</button>
+</div>
