@@ -1,5 +1,6 @@
 package edu.utdallas.se6387.revs.votingclient.models;
 
+import edu.utdallas.se6387.revs.votingclient.VotingClientException;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -8,10 +9,9 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 import java.util.List;
 
 @Getter
-@Setter
 public class Race {
     protected String raceName;
-    private List<Candidate> candidates;
+    protected List<Candidate> candidates;
 
     public Race() {
     }

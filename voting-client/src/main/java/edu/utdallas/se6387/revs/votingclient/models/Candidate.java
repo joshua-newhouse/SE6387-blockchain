@@ -5,6 +5,8 @@ import lombok.Setter;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
+import java.util.Objects;
+
 @Getter
 @Setter
 public class Candidate {
@@ -25,5 +27,18 @@ public class Candidate {
                 .append("name", name)
                 .append("party", party)
                 .toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if(this == o) return true;
+        if(o == null || getClass() != o.getClass()) return false;
+        Candidate candidate = (Candidate) o;
+        return name.equals(candidate.name) && party.equals(candidate.party);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, party);
     }
 }

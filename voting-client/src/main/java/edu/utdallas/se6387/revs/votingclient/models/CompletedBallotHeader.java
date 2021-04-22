@@ -15,7 +15,16 @@ public class CompletedBallotHeader extends BallotHeader {
     public CompletedBallotHeader() {
     }
 
-    public CompletedBallotHeader(String state, String date, String type, String county, String precinct, String timestamp, String voterCertificate, String signature) {
+    public CompletedBallotHeader(
+            String state,
+            String date,
+            String type,
+            String county,
+            String precinct,
+            String timestamp,
+            String voterCertificate,
+            String signature
+    ) {
         super(state, date, type, county, precinct);
         this.timestamp = timestamp;
         this.voterCertificate = voterCertificate;
@@ -29,5 +38,13 @@ public class CompletedBallotHeader extends BallotHeader {
                 .append("voterCertificate", voterCertificate)
                 .append("signature", voterCertificate)
                 .toString();
+    }
+
+    public boolean isFrom(BallotHeader sourceHeader) {
+        return state.equals(sourceHeader.getState()) &&
+                date.equals(sourceHeader.getDate()) &&
+                type.equals(sourceHeader.getType()) &&
+                county.equals(sourceHeader.getCounty()) &&
+                precinct.equals(sourceHeader.getPrecinct());
     }
 }
