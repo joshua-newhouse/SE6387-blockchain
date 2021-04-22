@@ -9,7 +9,7 @@
   "Ballot": {
     "races": [
       {
-        "race": "President and Vice President",
+        "raceName": "President and Vice President",
         "candidates": [
           {
             "name": "Donald J. Trump, Michael R. Pence",
@@ -30,7 +30,7 @@
         ]
       },
       {
-        "race": "United States Senator",
+        "raceName": "United States Senator",
         "candidates": [
           {
             "name": "John Cornyn",
@@ -51,7 +51,7 @@
         ]
       },
       {
-        "race": "Sheriff",
+        "raceName": "Sheriff",
         "candidates": [
           {
             "name": "Christopher Forbis",
@@ -60,7 +60,7 @@
         ]
       },
       {
-        "race": "County Commissioner, Precinct 3",
+        "raceName": "County Commissioner, Precinct 3",
         "candidates": [
           {
             "name": "Bob Robinson",

@@ -80,7 +80,7 @@ public class BallotHandler implements TransactionHandler {
                 Collections.singletonList(voterAddress)
         );
 
-        if(ledgerEntry.isEmpty()) {
+        if(ledgerEntry.get(voterAddress).isEmpty()) {
             LOGGER.info("Adding new vote to ledger: {}", voterAddress);
 
             Map.Entry<String, ByteString> newVote = new AbstractMap.SimpleEntry<>(
@@ -93,9 +93,6 @@ public class BallotHandler implements TransactionHandler {
             LOGGER.info("Successfully added new vote to ledger: {}", voterAddress);
         } else {
             LOGGER.warn("Vote already present at: {}", voterAddress);
-            throw new InvalidTransactionException(
-                    String.format("Ballot already present in ledger for address %s and cert %s", voterAddress, voterCert)
-            );
         }
     }
 }

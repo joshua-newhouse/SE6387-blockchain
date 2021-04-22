@@ -33,7 +33,7 @@ import java.util.stream.Collectors;
 public class SawtoothRESTBatchingService implements BatchingService {
     private static final Logger LOGGER = LoggerFactory.getLogger(SawtoothRESTBatchingService.class);
     private static final int MAX_BATCH_SIZE = 100;
-    private static final String SAWTOOTH_REST_URL = "http://192.168.1.227:8008";
+    private static final String SAWTOOTH_REST_URL = "http://192.168.1.232:8008";
     private static final String TRANSACTION_FAMILY = "vote";
     private static final String ADDRESS_PREFIX = Utils.hash512(
             TRANSACTION_FAMILY.getBytes(StandardCharsets.UTF_8)
@@ -48,6 +48,9 @@ public class SawtoothRESTBatchingService implements BatchingService {
     public SawtoothRESTBatchingService() {
         Secp256k1Context context = new Secp256k1Context();
         PrivateKey privateKey = context.newRandomPrivateKey();
+
+        LOGGER.info("NAMESPACE: {}", ADDRESS_PREFIX);
+
         this.signer = new Signer(context, privateKey);
         this.transactionQueue = new LinkedBlockingQueue<>();
     }
@@ -123,6 +126,7 @@ public class SawtoothRESTBatchingService implements BatchingService {
                 .setHeader(batchHeader.toByteString())
                 .addAllTransactions(transactions)
                 .setHeaderSignature(batchSignature)
+                .setTrace(true)
                 .build();
     }
 

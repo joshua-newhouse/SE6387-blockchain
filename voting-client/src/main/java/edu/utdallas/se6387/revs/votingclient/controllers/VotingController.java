@@ -55,12 +55,18 @@ public class VotingController {
     /* TODO: Implement this */
     @PostMapping(value = "/vote", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> processVote(@RequestBody CompletedBallot completedBallot) {
-        /* CompletedBallot -> has different header */
+
+        /* Get ballot from database for the public key and verify it is the correct ballot */
+        Ballot source = registrationRepository.getBallotFor(
+                completedBallot.getHeader().getVoterCertificate().getBytes(StandardCharsets.UTF_8)
+        );
+
+        if(!completedBallot.isFrom(source)) {
+            return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
+        }
+
         /* Get digital certificate from header and verify CA */
         /* Verify signature in ballot header with the public key */
-        /* Verify this voter has not voted already by getting blockchain */
-        /* Get ballot from database for the public key and verify it is the correct ballot */
-        /* Send to blockchain via REST and return status */
 
         HttpStatus status = HttpStatus.OK;
         try {

@@ -38,4 +38,14 @@ public class CompletedBallot {
 
         return retVal;
     }
+
+    public boolean isFrom(Ballot source) {
+        boolean retVal = header.isFrom(source.getHeader());
+
+        for(Selection selection : races) {
+            retVal = retVal && selection.isFrom(source.getRaces());
+        }
+
+        return retVal;
+    }
 }
