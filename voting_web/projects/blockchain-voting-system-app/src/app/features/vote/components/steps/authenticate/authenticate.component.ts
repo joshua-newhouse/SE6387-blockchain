@@ -1,9 +1,7 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import {
-  FileSystemDirectoryEntry,
-  FileSystemFileEntry,
-  NgxFileDropEntry
-} from 'ngx-file-drop';
+import {ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {FileSystemDirectoryEntry, FileSystemFileEntry, NgxFileDropEntry} from 'ngx-file-drop';
+import {VoteService} from '../../../vote.service';
+import {RegisterStepState} from '../../../vote.model';
 
 @Component({
   selector: 'bvs-authenticate',
@@ -12,11 +10,16 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AuthenticateComponent implements OnInit {
+
+  @Output() registered = new EventEmitter<RegisterStepState>();
+
   public files: NgxFileDropEntry[] = [];
 
-  constructor() {}
+  constructor(private voteService: VoteService) {
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   public dropped(files: NgxFileDropEntry[]) {
     this.files = files;
@@ -27,22 +30,6 @@ export class AuthenticateComponent implements OnInit {
         fileEntry.file((file: File) => {
           // Here you can access the real file
           console.log(droppedFile.relativePath, file);
-
-          /**
-           // You could upload it like this:
-           const formData = new FormData()
-           formData.append('logo', file, relativePath)
-
-           // Headers
-           const headers = new HttpHeaders({
-            'security-token': 'mytoken'
-          })
-
-           this.http.post('https://mybackend.com/api/upload/sanitize-and-save-logo', formData, { headers: headers, responseType: 'blob' })
-           .subscribe(data => {
-            // Sanitized logo returned from backend
-          })
-           **/
         });
       } else {
         // It was a directory (empty directories are added, otherwise only files)
@@ -60,5 +47,20 @@ export class AuthenticateComponent implements OnInit {
     console.log(event);
   }
 
-  next() {}
+  next() {
+    const droppedFile = this.files[0];
+    const systemFile = droppedFile.fileEntry as FileSystemFileEntry
+    let file;
+    systemFile.file(file1 => file = file1);
+    const formData = new FormData();
+    formData.append('file', file, droppedFile.relativePath)
+    this.voteService.registerVote(formData).subscribe(value => {
+      if (value) {
+        this.registered.emit({
+          isComplete: true,
+          ballot: value
+        });
+      }
+    });
+  }
 }

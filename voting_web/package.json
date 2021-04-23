@@ -1,15 +1,16 @@
 {
   "name": "blockchain-voting-system-app",
   "author": {
-    "name": "Vamsi Krishna Somepalli",
-    "email": "svk2000@gmail.com"
+    "name": "Manohar Tallapaneni",
+    "email": "manohar.tallapaneni@gmail.com",
+    "url": "tmanohar.com"
   },
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --open",
-    "start:prod": "npm run build:prod && npm run server",
+    "start:prod": "npm run build:prod && npm run server", 
     "build": "ng build",
     "build:prod": "ng build --prod",
     "lint": "eslint --color -c .eslintrc --ext .ts .",

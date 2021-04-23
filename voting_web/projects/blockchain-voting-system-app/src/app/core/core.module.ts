@@ -27,6 +27,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { FormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatGridListModule } from '@angular/material/grid-list';
+
 
 import { environment } from '../../environments/environment';
 
@@ -119,6 +121,7 @@ export function httpLoaderFactory(http: HttpClient) {
     MatTooltipModule,
     MatSnackBarModule,
     MatButtonModule,
+    MatGridListModule,
 
     // ngrx
     StoreModule.forRoot(reducers, { metaReducers }),
@@ -131,7 +134,7 @@ export function httpLoaderFactory(http: HttpClient) {
     environment.production
       ? []
       : StoreDevtoolsModule.instrument({
-          name: 'Remote Voting System'
+          name: 'Blockchain Voting System'
         }),
 
     // 3rd party
@@ -164,6 +167,7 @@ export function httpLoaderFactory(http: HttpClient) {
     MatTooltipModule,
     MatSnackBarModule,
     MatButtonModule,
+    MatGridListModule,
 
     // 3rd party
     FontAwesomeModule,

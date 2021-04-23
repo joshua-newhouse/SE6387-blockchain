@@ -1,32 +1,29 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { TranslateModule } from '@ngx-translate/core';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {TranslateModule} from '@ngx-translate/core';
 
-import { MatButtonModule } from '@angular/material/button';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatSelectModule } from '@angular/material/select';
-import { MatTabsModule } from '@angular/material/tabs';
-import { MatInputModule } from '@angular/material/input';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatChipsModule } from '@angular/material/chips';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatCardModule } from '@angular/material/card';
-import { MatListModule } from '@angular/material/list';
-import { MatIconModule } from '@angular/material/icon';
-import { MatTooltipModule } from '@angular/material/tooltip';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatSliderModule } from '@angular/material/slider';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
-import { MatRadioModule } from '@angular/material/radio';
+import {MatButtonModule} from '@angular/material/button';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatSelectModule} from '@angular/material/select';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatInputModule} from '@angular/material/input';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatCardModule} from '@angular/material/card';
+import {MatListModule} from '@angular/material/list';
+import {MatIconModule} from '@angular/material/icon';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatSliderModule} from '@angular/material/slider';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatRadioModule} from '@angular/material/radio';
 
-import {
-  FaIconLibrary,
-  FontAwesomeModule
-} from '@fortawesome/angular-fontawesome';
+import {FaIconLibrary, FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {
   faBook,
   faCaretDown,
@@ -46,14 +43,15 @@ import {
   faTrash,
   faWindowMaximize
 } from '@fortawesome/free-solid-svg-icons';
-import { faGithub, faMediumM } from '@fortawesome/free-brands-svg-icons';
+import {faGithub, faMediumM} from '@fortawesome/free-brands-svg-icons';
 
-import { BigInputComponent } from './big-input/big-input/big-input.component';
-import { BigInputActionComponent } from './big-input/big-input-action/big-input-action.component';
-import { RtlSupportDirective } from './rtl-support/rtl-support.directive';
-import { MatStepperModule } from '@angular/material/stepper';
-import { NgxFileDropModule } from 'ngx-file-drop';
-import { A11yModule } from '@angular/cdk/a11y';
+import {BigInputComponent} from './big-input/big-input/big-input.component';
+import {BigInputActionComponent} from './big-input/big-input-action/big-input-action.component';
+import {RtlSupportDirective} from './rtl-support/rtl-support.directive';
+import {MatStepperModule} from '@angular/material/stepper';
+import {NgxFileDropModule} from 'ngx-file-drop';
+import {A11yModule} from '@angular/cdk/a11y';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   imports: [
@@ -78,6 +76,7 @@ import { A11yModule } from '@angular/cdk/a11y';
     MatSlideToggleModule,
     MatDividerModule,
     MatRadioModule,
+    MatGridListModule,
 
     A11yModule,
     NgxFileDropModule,
@@ -116,6 +115,7 @@ import { A11yModule } from '@angular/cdk/a11y';
     MatNativeDateModule,
     MatStepperModule,
     MatRadioModule,
+    MatGridListModule,
 
     FontAwesomeModule,
 

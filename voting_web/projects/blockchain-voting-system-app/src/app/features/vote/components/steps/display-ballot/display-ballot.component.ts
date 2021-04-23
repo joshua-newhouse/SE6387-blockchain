@@ -1,4 +1,8 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {BallotStepState, Candidate, QuestionBase} from '../../../vote.model';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {VoteService} from '../../../vote.service';
+import {BehaviorSubject} from 'rxjs';
 
 @Component({
   selector: 'bvs-display-ballot',
@@ -7,12 +11,48 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DisplayBallotComponent implements OnInit {
-  favoriteCandidate: string;
-  candidates: string[] = ['Manohar', 'Vamsi'];
 
-  constructor() {}
+  @Input() raceQuestions$: BehaviorSubject<QuestionBase<Candidate>[]>;
 
-  ngOnInit(): void {}
+  @Output() racesSelected = new EventEmitter<BallotStepState>();
 
-  next() {}
+  raceQuestions: QuestionBase<Candidate>[];
+
+  form: FormGroup;
+
+  isReady = new BehaviorSubject<boolean>(false);
+
+  constructor(private fb: FormBuilder, private voteService: VoteService) {
+
+  }
+
+  ngOnInit(): void {
+    this.raceQuestions$.subscribe(data => {
+      if (data.length) {
+        this.form = this.voteService.toFormGroup(data);
+        this.raceQuestions = data;
+        this.isReady.next(true);
+      }
+    });
+  }
+
+  next() {
+    this.form.markAllAsTouched();
+    const rawValue = this.form.getRawValue();
+    if (this.form.valid) {
+
+      const data = [];
+      Object.keys(rawValue).forEach(key => {
+        data.push({
+          race: key,
+          candidate: rawValue[key]
+        })
+      });
+
+      this.racesSelected.emit({
+        isComplete: true,
+        raceCandidates: data
+      });
+    }
+  }
 }

@@ -1,23 +1,25 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { LazyElementsModule } from '@angular-extensions/elements';
-import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {LazyElementsModule} from '@angular-extensions/elements';
+import {StoreModule} from '@ngrx/store';
+import {EffectsModule} from '@ngrx/effects';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
-import { SharedModule } from '../../shared/shared.module';
-import { environment } from '../../../environments/environment';
+import {SharedModule} from '../../shared/shared.module';
+import {environment} from '../../../environments/environment';
 
-import { FEATURE_NAME } from './voter.state';
-import { VoteRoutingModule } from './vote-routing.module';
-import { VoteComponent } from './components/vote.component';
-import { VoteEffects } from './vote.effects';
-import { voteReducer } from './vote.reducer';
-import { AuthenticateComponent } from './components/steps/authenticate/authenticate.component';
-import { DisplayBallotComponent } from './components/steps/display-ballot/display-ballot.component';
-import { ReviewBallotComponent } from './components/steps/review-ballot/review-ballot.component';
-import { AcknowledgementComponent } from './components/steps/acknowledgement/acknowledgement.component';
+import {FEATURE_NAME} from './voter.state';
+import {VoteRoutingModule} from './vote-routing.module';
+import {VoteComponent} from './components/vote.component';
+import {VoteEffects} from './vote.effects';
+import {voteReducer} from './vote.reducer';
+import {AuthenticateComponent} from './components/steps/authenticate/authenticate.component';
+import {DisplayBallotComponent} from './components/steps/display-ballot/display-ballot.component';
+import {ReviewBallotComponent} from './components/steps/review-ballot/review-ballot.component';
+import {AcknowledgementComponent} from './components/steps/acknowledgement/acknowledgement.component';
+import {DynamicFormQuestionComponent} from './components/racequestion/dynamic-form-question.component';
+import {VoteService} from './vote.service';
 
 export function httpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(
@@ -49,10 +51,12 @@ export function httpLoaderFactory(http: HttpClient) {
     AuthenticateComponent,
     DisplayBallotComponent,
     ReviewBallotComponent,
-    AcknowledgementComponent
+    AcknowledgementComponent,
+    DynamicFormQuestionComponent
   ],
-  providers: []
+  providers: [VoteService]
 })
 export class VoteModule {
-  constructor() {}
+  constructor() {
+  }
 }

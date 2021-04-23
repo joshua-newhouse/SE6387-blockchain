@@ -1,4 +1,4 @@
-# Remote Electronic Voting System
+# Blockchain Voting System
 
 ## Getting started
 
