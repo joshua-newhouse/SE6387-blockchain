@@ -1,0 +1,8 @@
+edu/utdallas/se6387/revs/transactionprocessor/VotingTransactionProcessor.class
+edu/utdallas/se6387/revs/transactionprocessor/models/BallotHeader.class
+edu/utdallas/se6387/revs/transactionprocessor/models/Candidate.class
+edu/utdallas/se6387/revs/transactionprocessor/models/Selection.class
+edu/utdallas/se6387/revs/transactionprocessor/models/CompletedBallot.class
+edu/utdallas/se6387/revs/transactionprocessor/models/Race.class
+edu/utdallas/se6387/revs/transactionprocessor/models/CompletedBallotHeader.class
+edu/utdallas/se6387/revs/transactionprocessor/BallotHandler.class
