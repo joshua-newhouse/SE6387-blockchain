@@ -1,0 +1,157 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "blockchain-voting-system-app": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "changeDetection": "OnPush",
+          "style": "scss"
+        }
+      },
+      "root": "projects/blockchain-voting-system-app",
+      "sourceRoot": "projects/blockchain-voting-system-app/src",
+      "prefix": "bvs",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/blockchain-voting-system-app",
+            "index": "projects/blockchain-voting-system-app/src/index.html",
+            "main": "projects/blockchain-voting-system-app/src/main.ts",
+            "polyfills": "projects/blockchain-voting-system-app/src/polyfills.ts",
+            "tsConfig": "projects/blockchain-voting-system-app/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/blockchain-voting-system-app/src/favicon.ico",
+              "projects/blockchain-voting-system-app/src/assets"
+            ],
+            "styles": [
+              "projects/blockchain-voting-system-app/src/styles-app-loading.scss",
+              "projects/blockchain-voting-system-app/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/blockchain-voting-system-app/src/environments/environment.ts",
+                  "with": "projects/blockchain-voting-system-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "bundle",
+                  "name": "polyfills",
+                  "baseline": "150kb",
+                  "maximumWarning": "50kb",
+                  "maximumError": "100kb"
+                },
+                {
+                  "type": "bundle",
+                  "name": "styles",
+                  "baseline": "280kb",
+                  "maximumWarning": "50kb",
+                  "maximumError": "100kb"
+                },
+                {
+                  "type": "bundle",
+                  "name": "main",
+                  "baseline": "1024kb",
+                  "maximumWarning": "100kb",
+                  "maximumError": "200kb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "blockchain-voting-system-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "blockchain-voting-system-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "blockchain-voting-system-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/blockchain-voting-system-app/src/test.ts",
+            "polyfills": "projects/blockchain-voting-system-app/src/polyfills.ts",
+            "tsConfig": "projects/blockchain-voting-system-app/tsconfig.spec.json",
+            "karmaConfig": "projects/blockchain-voting-system-app/karma.conf.js",
+            "assets": [
+              "projects/blockchain-voting-system-app/src/favicon.ico",
+              "projects/blockchain-voting-system-app/src/assets"
+            ],
+            "styles": [
+              "projects/blockchain-voting-system-app/src/styles-app-loading.scss",
+              "projects/blockchain-voting-system-app/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "test": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/blockchain-voting-system-app/src/environments/environment.ts",
+                  "with": "projects/blockchain-voting-system-app/src/environments/environment.test.ts"
+                }
+              ]
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/blockchain-voting-system-app/tsconfig.app.json",
+              "projects/blockchain-voting-system-app/tsconfig.spec.json",
+              "projects/blockchain-voting-system-app/e2e/tsconfig.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/blockchain-voting-system-app/e2e/protractor.conf.js",
+            "devServerTarget": "blockchain-voting-system-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "blockchain-voting-system-app:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "blockchain-voting-system-app",
+  "cli": {
+    "analytics": false
+  }
+}

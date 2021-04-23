@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 rtl class="main-heading">
+        {{ 'bvs.vote.title' | translate }}
+      </h1>
+    </div>
+  </div>
+  <div class="row" [ngClass]="routeAnimationsElements" rtl>
+    <div class="col-md-12 col-lg-12">
+      <mat-card>
+        <mat-horizontal-stepper labelPosition="bottom"
+                                (selectionChange)="stepSelectionChanged($event)"
+                                linear
+                                #stepper
+                                class="col-md-12 col-lg-12">
+
+          <mat-step
+            [completed]="isAuthenticateComplete"
+            [editable]="isEditable"
+            [label]="'Authenticate'"
+          >
+            <ng-template matStepLabel>Authenticate</ng-template>
+            <bvs-authenticate (registered)="onRegistered($event)"></bvs-authenticate>
+          </mat-step>
+
+          <mat-step
+            [completed]="isBallotSelectionComplete"
+            [editable]="isEditable"
+            [label]="'Display Ballot'"
+          >
+            <ng-template matStepLabel>Display Ballot</ng-template>
+            <bvs-display-ballot [raceQuestions$]="raceQuestions$"
+                                (racesSelected)="onRacesSelected($event)"></bvs-display-ballot>
+          </mat-step>
+
+          <mat-step
+            [completed]="isBallotReviewComplete"
+            [editable]="isEditable"
+            [label]="'Review Ballot'"
+          >
+            <ng-template matStepLabel>Review Ballot</ng-template>
+            <bvs-review-ballot [raceCandidates$]="selectedRaces$"
+                               [ballot$]="ballot$"
+                               (ballotReviewed)="onBallotReviewed($event)"></bvs-review-ballot>
+          </mat-step>
+
+          <mat-step
+            [completed]="isAcknowledgementComplete"
+            [editable]="isEditable"
+            [label]="'Acknowledgement'"
+          >
+            <ng-template matStepLabel>Acknowledgement</ng-template>
+            <bvs-acknowledgement [voteResult$]="voteResult$"></bvs-acknowledgement>
+          </mat-step>
+
+        </mat-horizontal-stepper>
+
+      </mat-card>
+
+    </div>
+  </div>
+</div>

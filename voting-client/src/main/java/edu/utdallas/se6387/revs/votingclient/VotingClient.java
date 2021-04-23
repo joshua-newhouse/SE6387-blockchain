@@ -9,4 +9,5 @@ public class VotingClient {
     public static void main(String[] args) {
         SpringApplication.run(VotingClient.class, args);
     }
+
 }
