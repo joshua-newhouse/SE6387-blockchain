@@ -9,6 +9,7 @@ edu/utdallas/se6387/revs/votingclient/models/CompletedBallotHeader.class
 edu/utdallas/se6387/revs/votingclient/models/Race.class
 edu/utdallas/se6387/revs/votingclient/VotingClient.class
 edu/utdallas/se6387/revs/votingclient/models/BallotHeader.class
+edu/utdallas/se6387/revs/votingclient/models/VoteResult.class
 edu/utdallas/se6387/revs/votingclient/data/TestRegistrationRepository.class
 edu/utdallas/se6387/revs/votingclient/batch/SawtoothRESTBatchingService.class
 edu/utdallas/se6387/revs/votingclient/models/Candidate.class

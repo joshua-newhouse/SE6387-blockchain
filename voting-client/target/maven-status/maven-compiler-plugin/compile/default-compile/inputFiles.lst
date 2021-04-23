@@ -3,6 +3,7 @@
 /Users/kavvam/Documents/Final_Project_Josh/SE6387-blockchain/voting-client/src/main/java/edu/utdallas/se6387/revs/votingclient/models/BallotHeader.java
 /Users/kavvam/Documents/Final_Project_Josh/SE6387-blockchain/voting-client/src/main/java/edu/utdallas/se6387/revs/votingclient/data/RegistrationRepositoryDBImpl.java
 /Users/kavvam/Documents/Final_Project_Josh/SE6387-blockchain/voting-client/src/main/java/edu/utdallas/se6387/revs/votingclient/models/Selection.java
+/Users/kavvam/Documents/Final_Project_Josh/SE6387-blockchain/voting-client/src/main/java/edu/utdallas/se6387/revs/votingclient/models/VoteResult.java
 /Users/kavvam/Documents/Final_Project_Josh/SE6387-blockchain/voting-client/src/main/java/edu/utdallas/se6387/revs/votingclient/data/RegistrationRepository.java
 /Users/kavvam/Documents/Final_Project_Josh/SE6387-blockchain/voting-client/src/main/java/edu/utdallas/se6387/revs/votingclient/models/Candidate.java
 /Users/kavvam/Documents/Final_Project_Josh/SE6387-blockchain/voting-client/src/main/java/edu/utdallas/se6387/revs/votingclient/data/TestRegistrationRepository.java

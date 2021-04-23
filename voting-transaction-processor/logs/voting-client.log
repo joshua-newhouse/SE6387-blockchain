@@ -17463,3 +17463,166 @@ Caused by: java.net.SocketException: Network is unreachable
 09:46:26.800 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 2 total batches sent to blockchain network
 09:46:36.800 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
 09:46:36.800 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 2 total batches sent to blockchain network
+09:46:46.803 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+09:46:46.805 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 2 total batches sent to blockchain network
+09:46:56.802 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+09:46:56.802 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 2 total batches sent to blockchain network
+09:47:06.802 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+09:47:06.802 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 2 total batches sent to blockchain network
+09:47:16.803 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+09:47:16.803 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 2 total batches sent to blockchain network
+09:47:26.802 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+09:47:26.804 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 2 total batches sent to blockchain network
+09:47:36.802 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+09:47:36.804 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 2 total batches sent to blockchain network
+09:47:46.802 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+09:47:46.802 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 2 total batches sent to blockchain network
+09:47:56.801 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+09:47:56.803 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 2 total batches sent to blockchain network
+09:48:06.798 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+09:48:06.798 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 2 total batches sent to blockchain network
+09:48:08.353 [SpringContextShutdownHook] INFO o.s.s.c.ThreadPoolTaskScheduler - Shutting down ExecutorService 'taskScheduler'
+09:48:08.359 [SpringContextShutdownHook] INFO o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+09:48:14.222 [main] INFO e.u.s.revs.votingclient.VotingClient - Starting VotingClient using Java 1.8.0_202 on vamsis-mbp.lan with PID 14441 (/Users/kavvam/Documents/Final_Project_Josh/SE6387-blockchain/voting-client/target/classes started by kavvam in /Users/kavvam/Documents/Final_Project_Josh/SE6387-blockchain/voting-transaction-processor)
+09:48:14.224 [main] INFO e.u.s.revs.votingclient.VotingClient - The following profiles are active: dev
+09:48:15.072 [main] INFO o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+09:48:15.079 [main] INFO o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+09:48:15.080 [main] INFO o.a.catalina.core.StandardService - Starting service [Tomcat]
+09:48:15.080 [main] INFO o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.44]
+09:48:15.138 [main] INFO o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+09:48:15.138 [main] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 876 ms
+09:48:15.549 [main] INFO o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+09:48:15.673 [main] INFO o.s.s.c.ThreadPoolTaskScheduler - Initializing ExecutorService 'taskScheduler'
+09:48:15.687 [main] INFO o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+09:48:15.709 [main] INFO o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+09:48:15.715 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+09:48:15.715 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 0 total batches sent to blockchain network
+09:48:15.718 [main] INFO e.u.s.revs.votingclient.VotingClient - Started VotingClient in 1.777 seconds (JVM running for 2.448)
+09:48:25.719 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+09:48:25.719 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 0 total batches sent to blockchain network
+09:48:35.718 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+09:48:35.719 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 0 total batches sent to blockchain network
+09:48:45.715 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+09:48:45.715 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 0 total batches sent to blockchain network
+09:48:55.714 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+09:48:55.714 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 0 total batches sent to blockchain network
+09:49:05.714 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+09:49:05.714 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 0 total batches sent to blockchain network
+09:49:15.719 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+09:49:15.719 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 0 total batches sent to blockchain network
+09:49:25.714 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+09:49:25.714 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 0 total batches sent to blockchain network
+09:49:35.718 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+09:49:35.718 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 0 total batches sent to blockchain network
+09:49:36.141 [http-nio-8080-exec-1] INFO o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+09:49:36.141 [http-nio-8080-exec-1] INFO o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+09:49:36.142 [http-nio-8080-exec-1] INFO o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+09:49:36.245 [http-nio-8080-exec-1] INFO e.u.s.r.v.c.VotingController - getBallotForRegistration called
+09:49:36.247 [http-nio-8080-exec-1] INFO e.u.s.r.v.d.TestRegistrationRepository - getBallotFor called with [65, 66, 67, 68, 69]
+09:49:41.840 [http-nio-8080-exec-2] INFO e.u.s.r.v.c.VotingController - getBallotForRegistration called
+09:49:41.840 [http-nio-8080-exec-2] INFO e.u.s.r.v.d.TestRegistrationRepository - getBallotFor called with [65, 66, 67, 68, 69]
+09:49:45.718 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+09:49:45.718 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 0 total batches sent to blockchain network
+09:49:55.718 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+09:49:55.718 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 0 total batches sent to blockchain network
+09:50:05.718 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+09:50:05.718 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 0 total batches sent to blockchain network
+09:50:08.714 [http-nio-8080-exec-4] INFO org.bitcoin.Secp256k1Context - java.lang.UnsatisfiedLinkError: no secp256k1 in java.library.path
+09:50:15.714 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+09:50:15.724 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 
+�
+�
+B03ef8b4b8ef26cf0642e50face12da6f0c154d0483ee1628bef6324473b95f6489�7cda8f346fe84063f5653edb7795505a5f4f4a10f0d425a8d0cabc856318478923345928b833967fad4ac380e8f276948b75b7e7b3a87b508b33dcc93ab3238c�048bca527c4cccec1e385f675f20c3379156119bcdcfdfe40a480ee47825ef965eb4ff6973bebbdc337510c1223a3f8df92bdd84dda075e1eb12b8f5fc81e579�dd25dac2086707eb50d778886ec4bce6cdf4b7c2dc39de9e1c2050a7c6490d7c6ba583229c3666ce8e6792d4c3353622a673c068b9ab0153678b2b477a880d3d�
+�
+B03ef8b4b8ef26cf0642e50face12da6f0c154d0483ee1628bef6324473b95f6489vote"0.1.0*F9b416ccdf9a1e718ce76a1766bb457e47b9f9d689a3933597707baabfa86ed27fb138c2$9a175687-8bf9-4cfb-9b01-c07d5a9d32e8:F9b416ccdf9a1e718ce76a1766bb457e47b9f9d689a3933597707baabfa86ed27fb138cJ�50a1fa2df96628d621496c0d297c99489ede7e4752d266814675707515d6e8d6908d447e805d640a60503cba510a134066021f4bbaf68474dd5ded85fa3b783eRB03ef8b4b8ef26cf0642e50face12da6f0c154d0483ee1628bef6324473b95f6489�7cda8f346fe84063f5653edb7795505a5f4f4a10f0d425a8d0cabc856318478923345928b833967fad4ac380e8f276948b75b7e7b3a87b508b33dcc93ab3238c�{"header":{"state":"Texas","date":"2020-11-03","type":"general","county":"Collin","precinct":"101A","timestamp":null,"voterCertificate":"04ad9b7d95d570b9bd0f18cc918b735f0afb22558b566d8579b795327746138d7dc85f7359565d32d47ebc77b5fd55517a1edf106a5d4866c2fd3edbdaf7bf1125","signature":"04ad9b7d95d570b9bd0f18cc918b735f0afb22558b566d8579b795327746138d7dc85f7359565d32d47ebc77b5fd55517a1edf106a5d4866c2fd3edbdaf7bf1125"},"races":[{"raceName":"President and Vice President","candidates":[{"name":"Donald J. Trump, Michael R. Pence","party":"Republican"}]},{"raceName":"United States Senator","candidates":[{"name":"Mary 'MJ' Hegar","party":"Democratic"}]},{"raceName":"Sheriff","candidates":[{"name":"Warren Funk","party":"Libertarian"}]},{"raceName":"County Commissioner, Precinct No. 1","candidates":[{"name":"Harley David Belew","party":"Republican"}]}]}�
+�
+B03ef8b4b8ef26cf0642e50face12da6f0c154d0483ee1628bef6324473b95f6489vote"0.1.0*F9b416ccdf9a1e718ce76a1766bb457e47b9f9d689a3933597707baabfa86ed27fb138c2$ed1d9cc8-1521-4812-b42e-317be37a1ca9:F9b416ccdf9a1e718ce76a1766bb457e47b9f9d689a3933597707baabfa86ed27fb138cJ�50a1fa2df96628d621496c0d297c99489ede7e4752d266814675707515d6e8d6908d447e805d640a60503cba510a134066021f4bbaf68474dd5ded85fa3b783eRB03ef8b4b8ef26cf0642e50face12da6f0c154d0483ee1628bef6324473b95f6489�048bca527c4cccec1e385f675f20c3379156119bcdcfdfe40a480ee47825ef965eb4ff6973bebbdc337510c1223a3f8df92bdd84dda075e1eb12b8f5fc81e579�{"header":{"state":"Texas","date":"2020-11-03","type":"general","county":"Collin","precinct":"101A","timestamp":null,"voterCertificate":"04ad9b7d95d570b9bd0f18cc918b735f0afb22558b566d8579b795327746138d7dc85f7359565d32d47ebc77b5fd55517a1edf106a5d4866c2fd3edbdaf7bf1125","signature":"04ad9b7d95d570b9bd0f18cc918b735f0afb22558b566d8579b795327746138d7dc85f7359565d32d47ebc77b5fd55517a1edf106a5d4866c2fd3edbdaf7bf1125"},"races":[{"raceName":"President and Vice President","candidates":[{"name":"Donald J. Trump, Michael R. Pence","party":"Republican"}]},{"raceName":"United States Senator","candidates":[{"name":"Mary 'MJ' Hegar","party":"Democratic"}]},{"raceName":"Sheriff","candidates":[{"name":"Warren Funk","party":"Libertarian"}]},{"raceName":"County Commissioner, Precinct No. 1","candidates":[{"name":"Harley David Belew","party":"Republican"}]}]}
+09:50:16.057 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 1 total batches sent to blockchain network
+09:50:23.221 [reactor-http-nio-2] ERROR reactor.core.publisher.Operators - Operator called default onErrorDropped
+reactor.core.Exceptions$ErrorCallbackNotImplemented: org.springframework.web.reactive.function.client.WebClientRequestException: Network is unreachable: /192.168.1.227:8008; nested exception is io.netty.channel.AbstractChannel$AnnotatedSocketException: Network is unreachable: /192.168.1.227:8008
+Caused by: org.springframework.web.reactive.function.client.WebClientRequestException: Network is unreachable: /192.168.1.227:8008; nested exception is io.netty.channel.AbstractChannel$AnnotatedSocketException: Network is unreachable: /192.168.1.227:8008
+	at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:141)
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	|_ checkpoint ⇢ Request to POST http://192.168.1.227:8008/batches [DefaultWebClient]
+Stack trace:
+		at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:141)
+		at reactor.core.publisher.MonoErrorSupplied.subscribe(MonoErrorSupplied.java:70)
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4099)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:221)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:221)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:221)
+		at reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93)
+		at reactor.core.publisher.MonoFlatMapMany$FlatMapManyMain.onError(MonoFlatMapMany.java:204)
+		at reactor.core.publisher.SerializedSubscriber.onError(SerializedSubscriber.java:124)
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.whenError(FluxRetryWhen.java:224)
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenOtherSubscriber.onError(FluxRetryWhen.java:273)
+		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.drain(FluxConcatMap.java:413)
+		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.onNext(FluxConcatMap.java:250)
+		at reactor.core.publisher.EmitterProcessor.drain(EmitterProcessor.java:491)
+		at reactor.core.publisher.EmitterProcessor.tryEmitNext(EmitterProcessor.java:299)
+		at reactor.core.publisher.SinkManySerialized.tryEmitNext(SinkManySerialized.java:97)
+		at reactor.core.publisher.InternalManySink.emitNext(InternalManySink.java:27)
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.onError(FluxRetryWhen.java:189)
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:189)
+		at reactor.netty.http.client.HttpClientConnect$MonoHttpConnect$ClientTransportSubscriber.onError(HttpClientConnect.java:304)
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:189)
+		at reactor.netty.resources.DefaultPooledConnectionProvider$DisposableAcquire.onError(DefaultPooledConnectionProvider.java:181)
+		at reactor.netty.internal.shaded.reactor.pool.AbstractPool$Borrower.fail(AbstractPool.java:427)
+		at reactor.netty.internal.shaded.reactor.pool.SimpleDequePool.lambda$drainLoop$7(SimpleDequePool.java:382)
+		at reactor.core.publisher.FluxDoOnEach$DoOnEachSubscriber.onError(FluxDoOnEach.java:186)
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:189)
+		at reactor.netty.resources.DefaultPooledConnectionProvider$PooledConnectionAllocator$PooledConnectionInitializer.onError(DefaultPooledConnectionProvider.java:563)
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.secondError(MonoFlatMap.java:192)
+		at reactor.core.publisher.MonoFlatMap$FlatMapInner.onError(MonoFlatMap.java:259)
+		at reactor.netty.transport.TransportConnector$MonoChannelPromise.tryFailure(TransportConnector.java:464)
+		at reactor.netty.transport.TransportConnector$MonoChannelPromise$1.tryFailure(TransportConnector.java:515)
+		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:321)
+		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:337)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:707)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:655)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:581)
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493)
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+		at java.lang.Thread.run(Thread.java:748)
+Caused by: io.netty.channel.AbstractChannel$AnnotatedSocketException: Network is unreachable: /192.168.1.227:8008
+Caused by: java.net.SocketException: Network is unreachable
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:330)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:707)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:655)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:581)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+09:50:25.716 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+09:50:25.716 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 1 total batches sent to blockchain network
+09:50:35.718 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+09:50:35.718 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 1 total batches sent to blockchain network
+09:50:45.718 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+09:50:45.718 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 1 total batches sent to blockchain network
+09:50:55.717 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+09:50:55.717 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 1 total batches sent to blockchain network
+09:51:05.715 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+09:51:05.715 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 1 total batches sent to blockchain network
+09:51:15.713 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+09:51:15.713 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 1 total batches sent to blockchain network
+09:51:25.717 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+09:51:25.717 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 1 total batches sent to blockchain network
+09:51:35.717 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+09:51:35.717 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 1 total batches sent to blockchain network
+09:51:45.717 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+09:51:45.717 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 1 total batches sent to blockchain network
+09:51:55.712 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+09:51:55.712 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 1 total batches sent to blockchain network
+09:52:05.713 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+09:52:05.713 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 1 total batches sent to blockchain network
+09:52:15.712 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - Sending batches
+09:52:15.712 [scheduling-1] INFO e.u.s.r.v.b.SawtoothRESTBatchingService - 1 total batches sent to blockchain network
