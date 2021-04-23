@@ -1,0 +1,15 @@
+<mat-list *ngIf="isReady | async">
+  <ng-container *ngFor="let selectedRace of raceCandidates" role="listitem">
+    <div mat-subheader>{{selectedRace.race}}</div>
+    <mat-list-item>
+      <div mat-line>{{selectedRace.candidate.name}}</div>
+      <div mat-line> {{selectedRace.candidate.party}} </div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+  </ng-container>
+</mat-list>
+
+<div>
+  <button mat-button matStepperPrevious type="button">Back</button>
+  <button mat-button matStepperNext type="button" (click)="next()">Submit</button>
+</div>
